@@ -1,0 +1,21 @@
+curl http://localhost:5101/contador/postgres
+
+###
+
+curl http://localhost:5101/contador/mysql
+
+###
+
+curl http://localhost:5101/connectionstring/postgres
+
+###
+
+curl http://localhost:5101/connectionstring/mysql
+
+###
+
+curl http://localhost:5101/badrequest
+
+###
+
+curl http://localhost:5101/error
