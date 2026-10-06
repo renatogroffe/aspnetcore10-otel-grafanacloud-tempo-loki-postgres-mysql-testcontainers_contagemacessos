@@ -110,34 +110,6 @@ builder.Logging.AddOpenTelemetry(options =>
         };
     });
 });
-/*builder.Services.AddOpenTelemetry()
-    .WithMetrics((metricBuilder) =>
-    {
-        metricBuilder.AddView(
-            "http.server.request.duration",
-            new ExplicitBucketHistogramConfiguration()
-            {
-                Boundaries = [0, 0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1, 2.5, 5, 7.5, 10]
-            }
-        );
-        metricBuilder.AddMeter(
-            "System.Diagnostics.Metrics",
-            "Microsoft.AspNetCore.Hosting",
-            "Microsoft.AspNetCore.Server.Kestrel",
-            "System.Net.Http");
-        metricBuilder
-            .SetResourceBuilder(resourceBuilder)
-            .AddAspNetCoreInstrumentation()
-            .AddRuntimeInstrumentation()
-            .AddProcessInstrumentation()
-            .AddHttpClientInstrumentation()
-            .AddConsoleExporter()
-            .AddPrometheusExporter(options =>
-            {
-                options.ScrapeResponseCacheDurationMilliseconds = 0;
-            })
-            .UseGrafana();
-    });*/
 
 builder.Services.AddOpenApi();
 builder.Services.AddCors();
@@ -145,8 +117,6 @@ builder.Services.AddCors();
 builder.Services.AddSingleton<Contador>();
 
 var app = builder.Build();
-
-//app.UseOpenTelemetryPrometheusScrapingEndpoint();
 
 app.MapOpenApi();
 app.MapScalarApiReference(options =>
